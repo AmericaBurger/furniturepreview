@@ -178,8 +178,6 @@ body {
 
 .text-and-header {
     margin: 3rem 4rem;
-    /* margin: 5rem 6rem; */
-    /* border: 1px solid red; */
 }
 .header {
     font-size: 2.5rem;
@@ -207,7 +205,6 @@ body {
 
 .buttons1 {
     width: 11.1vw;
-    /* height: 11.1vh; */
     position: absolute;
     bottom: 0;
     left: 0;
@@ -231,7 +228,6 @@ body {
 }
 
 .next-button, .prev-button {
-    /* border: 1px solid red; */
     width: 5rem;
     height: 100%;
     display: flex;
@@ -281,7 +277,6 @@ body {
 
 .text-bottom-page {
     padding: .5rem 1.5rem 0rem;
-    /* padding: 2rem 3rem 0rem 3rem; */
 }
 
 .left-div-img, .right-div-img {
@@ -315,9 +310,6 @@ body {
         height: 50vh;
         position: relative;
     }
-    /* .top-menu {
-        position: relative;
-    } */
     .buttons1 {
         display: none;
     }
@@ -338,18 +330,13 @@ body {
         display: none;
     }
     .top-menu-buttons {
-        /* display: none; */
-        position: relative;
-
-        
+        position: relative;        
     }
     .container-buttons {
         font-weight: 600;
         font-size: .9rem;
         width: 100%;
         position: absolute;
-        /* right: 0; */
-        /* right: 1rem; */
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -378,20 +365,14 @@ body {
         top: 0;
         position: fixed;
         height: 6rem;
-        /* padding-right: 1rem; */
         width: 100vw;
         z-index: 4;
     }
-    /* .top-menu-buttons {
-        padding: 1rem;
-    } */
     .close-top-menu {
         background-image: url(../images/icon-close.svg);
         aspect-ratio: 1/1;
         width: 1rem;
-        /* position: absolute; */
         padding-left: 2rem;
-        /* left: 2rem; */
         background-size: auto auto;
         background-position: center;
         background-repeat: no-repeat;
@@ -404,7 +385,6 @@ body {
         padding: 0;
         margin: 2rem;
         margin-top: 4rem;
-        /* border: 1px solid red; */
     }
     .text-right-side-top {
         padding-bottom: 3.3rem;
@@ -424,7 +404,6 @@ body {
     }
     .left-div-img, .right-div-img {
         width: 100%;
-        /* height: 100%; */
         background-position: center;
         background-repeat: no-repeat;
         background-size: 100% auto;
