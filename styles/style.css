@@ -100,6 +100,7 @@ body {
     padding: 0 1rem;
 }
 .top-menu-buttons{
+
 }
 
 .one, .two, .three, .four {
@@ -152,6 +153,10 @@ body {
     flex-direction: row;
     padding: 0.5rem 0rem;
 }
+.container-buttons {
+    display: flex;
+    flex-direction: row;
+}
 
 
 .bottom-page-part {
@@ -162,7 +167,7 @@ body {
     width: 60vw;
     background-image: url(../images/desktop-image-hero-1.jpg);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
 }
 
 .right-side-top {
@@ -172,7 +177,9 @@ body {
 }
 
 .text-and-header {
-    margin: 5rem 6rem;
+    margin: 3rem 4rem;
+    /* margin: 5rem 6rem; */
+    /* border: 1px solid red; */
 }
 .header {
     font-size: 2.5rem;
@@ -200,7 +207,7 @@ body {
 
 .buttons1 {
     width: 11.1vw;
-    height: 11.1vh;
+    /* height: 11.1vh; */
     position: absolute;
     bottom: 0;
     left: 0;
@@ -208,6 +215,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--black);
+    aspect-ratio: 2/1;
 }
 .buttons {
     width: 11.1vw;
@@ -219,11 +227,13 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--black);
+    display: none;
 }
 
 .next-button, .prev-button {
+    /* border: 1px solid red; */
     width: 5rem;
-    height: 5rem;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;  
@@ -270,7 +280,8 @@ body {
 }
 
 .text-bottom-page {
-    padding: 2rem 3rem 0rem 3rem;
+    padding: .5rem 1.5rem 0rem;
+    /* padding: 2rem 3rem 0rem 3rem; */
 }
 
 .left-div-img, .right-div-img {
@@ -278,7 +289,7 @@ body {
     height: 30vh;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
 }
 
 .right-div-img {
@@ -311,6 +322,7 @@ body {
         display: none;
     }
     .buttons {
+        display: flex;
         position: absolute;
         bottom: 0;
         left: unset;
@@ -322,8 +334,67 @@ body {
         width: 100%;
         left: unset;
     }
-    .top-menu-buttons {
+    .logo {
         display: none;
+    }
+    .top-menu-buttons {
+        /* display: none; */
+        position: relative;
+
+        
+    }
+    .container-buttons {
+        font-weight: 600;
+        font-size: .9rem;
+        width: 100%;
+        position: absolute;
+        /* right: 0; */
+        /* right: 1rem; */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: var(--black)
+    }
+    .dim {
+        position: relative;
+    }
+    .dim:after {
+        content: '\A';
+        position: fixed;
+        width: 100%; 
+        height: 100%;
+        top:0; 
+        left:0;
+        background:rgba(0,0,0,0.5);
+        opacity: 1;
+        z-index: 2;
+    }
+    .top-menu-buttons-div {
+        position: relative;
+        background-color: var(--white);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        position: fixed;
+        height: 6rem;
+        /* padding-right: 1rem; */
+        width: 100vw;
+        z-index: 4;
+    }
+    /* .top-menu-buttons {
+        padding: 1rem;
+    } */
+    .close-top-menu {
+        background-image: url(../images/icon-close.svg);
+        aspect-ratio: 1/1;
+        width: 1rem;
+        /* position: absolute; */
+        padding-left: 2rem;
+        /* left: 2rem; */
+        background-size: auto auto;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     .right-side-top {
         width: 100%;
@@ -333,6 +404,7 @@ body {
         padding: 0;
         margin: 2rem;
         margin-top: 4rem;
+        /* border: 1px solid red; */
     }
     .text-right-side-top {
         padding-bottom: 3.3rem;
@@ -367,10 +439,48 @@ body {
         width: 100%;
     }
     .text-bottom-page {
-        padding: 3rem 3rem;
+        padding: 3rem 2rem;
         margin: 0;
     }
   }
+
+  @media screen and (min-width: 320px) {
+      .container-buttons {
+          font-size: .9rem;
+        }
+    }
+    @media screen and (min-width: 345px) {
+        .container-buttons {
+            font-size: 1.1rem;
+          }
+      }
+    @media screen and (min-width: 375px) {
+        .container-buttons {
+          font-size: 1.2rem;
+        }
+    }
+    @media screen and (min-width: 414px) {
+    .container-buttons {
+      font-size: 1.3rem;
+    }
+}
+  @media screen and (min-width: 1045px) {
+    .text-and-header {
+        
+        margin: 5rem 6rem;
+    }
+    /* .page {
+        min-width: 900px;
+    } */
+    .text-bottom-page {
+        /* padding: .5rem 1.5rem 0rem; */
+        padding: 2rem 3rem 0rem 3rem;
+    }
+    #arrow-link {
+        margin-top: -1rem;
+        padding-left: 14rem;
+    }
+}
 
 
 
