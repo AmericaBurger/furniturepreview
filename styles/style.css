@@ -276,7 +276,7 @@ body {
 }
 
 .text-bottom-page {
-    padding: .5rem 1.5rem 0rem;
+    padding: 1rem 1.5rem 0rem;
 }
 
 .left-div-img, .right-div-img {
@@ -417,10 +417,7 @@ body {
     .middle {
         width: 100%;
     }
-    .text-bottom-page {
-        padding: 3rem 2rem;
-        margin: 0;
-    }
+    
   }
 
   @media screen and (min-width: 320px) {
@@ -453,6 +450,10 @@ body {
     }
 }
   @media screen and (min-width: 1045px) {
+    .text-bottom-page {
+        padding: 3rem 2rem;
+        margin: 0;
+    }
     .text-and-header {
         
         margin: 5rem 6rem;
