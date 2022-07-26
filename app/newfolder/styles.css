@@ -1,0 +1,194 @@
+/* -------------------------------- 
+
+File#: _1_anim-menu-btn
+Title: Animated Menu Button
+Descr: A menu button w/ a morphing icon
+Usage: codyhouse.co/license
+
+-------------------------------- */
+/* reset */
+*, *::after, *::before {
+    box-sizing: border-box;
+  }
+  
+  * {
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  
+  body {
+    background-color: hsl(0 0% 100%);
+    font-family: system-ui, sans-serif;
+    color: hsl(230 7% 23%);
+    font-size: 1rem;
+  }
+  
+  h1, h2, h3, h4 {
+    line-height: 1.2;
+    color: hsl(230 13% 9%);
+    font-weight: 700;
+  }
+  
+  h1 {
+    font-size: 2.0736rem;
+  }
+  
+  h2 {
+    font-size: 1.728rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  h4 {
+    font-size: 1.2rem;
+  }
+  
+  ol, ul, menu {
+    list-style: none;
+  }
+  
+  button, input, textarea, select {
+    background-color: transparent;
+    border-radius: 0;
+    color: inherit;
+    line-height: inherit;
+    appearance: none;
+  }
+  
+  textarea {
+    resize: vertical;
+    overflow: auto;
+    vertical-align: top;
+  }
+  
+  a {
+    color: hsl(250 84% 54%);
+  }
+  
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  img, video, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  @media (min-width: 64rem) {
+    body {
+      font-size: 1.25rem;
+    }
+  
+    h1 {
+      font-size: 3.051rem;
+    }
+  
+      h2 {
+      font-size: 2.44rem;
+    }
+  
+      h3 {
+      font-size: 1.75rem;
+    }
+  
+      h4 {
+      font-size: 1.5625rem;
+    }
+  }
+  
+  /* variables */
+  :root {
+    /* colors */
+    --ag6-color-primary-hsl: 250, 84%, 54%;
+    --ag6-color-bg-hsl: 0, 0%, 100%;
+    --ag6-color-contrast-high-hsl: 230, 7%, 23%;
+    --ag6-color-contrast-higher-hsl: 230, 13%, 9%;
+  }
+  
+  /* component */
+  :root {
+    --anim-menu-btn-size: 48px;
+    --anim-menu-btn-transition-duration: .2s;
+    --anim-menu-btn-icon-size: 32px;
+    --anim-menu-btn-icon-stroke: 2px;
+  }
+  
+  .anim-menu-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--anim-menu-btn-size);
+    height: var(--anim-menu-btn-size);
+  }
+  
+  .anim-menu-btn__icon {
+    position: relative;
+    display: block;
+    font-size: var(--anim-menu-btn-icon-size);
+    width: 1em;
+    height: var(--anim-menu-btn-icon-stroke);
+    color: inherit;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  .anim-menu-btn__icon::before, .anim-menu-btn__icon::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: inherit;
+    border-radius: inherit;
+  }
+  
+  .anim-menu-btn__icon--close {
+    background-size: 100% 100%;
+    will-change: transform, background-size;
+    transition-property: background-size, -webkit-transform;
+    transition-property: transform, background-size;
+    transition-property: transform, background-size, -webkit-transform;
+    transition-duration: var(--anim-menu-btn-transition-duration, 0.2s);
+  }
+  .anim-menu-btn:active .anim-menu-btn__icon--close {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  .anim-menu-btn__icon--close::before, .anim-menu-btn__icon--close::after {
+    will-change: inherit;
+    transition: inherit;
+  }
+  .anim-menu-btn__icon--close::before {
+    -webkit-transform: translateY(-0.25em) rotate(0);
+            transform: translateY(-0.25em) rotate(0);
+  }
+  .anim-menu-btn__icon--close::after {
+    -webkit-transform: translateY(0.25em) rotate(0);
+            transform: translateY(0.25em) rotate(0);
+  }
+  
+  .anim-menu-btn--state-b .anim-menu-btn__icon--close {
+    background-size: 0% 100%;
+  }
+  .anim-menu-btn--state-b .anim-menu-btn__icon--close::before {
+    -webkit-transform: translateY(0) rotate(45deg);
+            transform: translateY(0) rotate(45deg);
+  }
+  .anim-menu-btn--state-b .anim-menu-btn__icon--close::after {
+    -webkit-transform: translateY(0) rotate(-45deg);
+            transform: translateY(0) rotate(-45deg);
+  }
+  
+  
+  /* utility classes */
+  .ag6-color-contrast-high {
+    --ag6-color-o: 1;
+    color: hsla(var(--ag6-color-contrast-high-hsl), var(--ag6-color-o, 1));
+  }
