@@ -1,5 +1,5 @@
-const prevBtn = document.querySelector(".btn-prev-desktop");
-const nextBtn = document.querySelector(".btn-next-desktop");
+const prevBtn = document.querySelectorAll(".btn-prev-desktop");
+const nextBtn = document.querySelectorAll(".btn-next-desktop");
 const leftTopCornerBackground = document.querySelector(".left-side-top");
 
 const pageHeader = document.querySelector(".header");
@@ -8,7 +8,8 @@ const textAfterHeader = document.querySelector(".text-right-side-top");
 const topMenu = document.querySelector('.top-menu')
 const closeBtn = document.querySelector('.close-top-menu-btn');
 
-closeBtn.addEventListener('click', hamburgerMenu)
+const barBgColor = document.querySelectorAll(".bar");
+// closeBtn.addEventListener('click', hamburgerMenu)
 
 function hamburgerMenu() {
   setTimeout(() => {
@@ -16,7 +17,7 @@ function hamburgerMenu() {
     topMenu.classList.toggle('hidden')
   }, 300);
     
-    console.log('working')
+    
 }
 
 const imgsArr = [
@@ -40,13 +41,13 @@ let counter = 0;
 
 function nextTextAndImg() {
     counter++;
-        if (counter == 3) {
+        if (counter === 3) {
         counter = 0
     }
     pageHeader.innerHTML = headerArr[counter]
     textAfterHeader.innerHTML = textArr[counter]
     leftTopCornerBackground.style.backgroundImage = imgsArr[counter];
-    // console.log(leftTopCornerBackground.style.backgroundImage)
+    console.log(leftTopCornerBackground.style.backgroundImage)
     }
     
 function prevTextAndImg() {
@@ -60,12 +61,15 @@ function prevTextAndImg() {
         console.log(counter)
         }
 
-prevBtn.addEventListener('click', prevTextAndImg);
-nextBtn.addEventListener('click', nextTextAndImg);
-
+prevBtn.forEach((btn)=> btn.addEventListener('click', prevTextAndImg));
+nextBtn.forEach((btn)=> btn.addEventListener('click', nextTextAndImg));
 
 function menuOnClick() {
+  document.body.classList.toggle('dim');
+  barBgColor.forEach((btn)=> btn.classList.toggle("bg-grey"))
+  document.getElementById("buttons-mobile").classList.toggle("z-index-style");
+  document.getElementById("btn-container").classList.toggle("bg-white");
   document.getElementById("menu-bar").classList.toggle("change");
   document.getElementById("nav").classList.toggle("change");
-  document.getElementById("menu-bg").classList.toggle("change-bg");
+  // document.getElementById("menu-bg").classList.toggle("change-bg");
 }
