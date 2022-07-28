@@ -75,86 +75,6 @@ body {
     font-size: 14px;
 }
 
-/* hamburger btn */
-
-  
-  .anim-menu-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: var(--anim-menu-btn-size);
-    height: var(--anim-menu-btn-size);
-  }
-  
-  .anim-menu-btn__icon {
-    position: relative;
-    display: block;
-    font-size: var(--anim-menu-btn-icon-size);
-    width: 1em;
-    height: var(--anim-menu-btn-icon-stroke);
-    color: inherit;
-    background-image: linear-gradient(currentColor, currentColor);
-    background-repeat: no-repeat;
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  .anim-menu-btn__icon::before, .anim-menu-btn__icon::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-image: inherit;
-    border-radius: inherit;
-  }
-  
-  .anim-menu-btn__icon--close {
-    background-size: 100% 100%;
-    will-change: transform, background-size;
-    transition-property: background-size, -webkit-transform;
-    transition-property: transform, background-size;
-    transition-property: transform, background-size, -webkit-transform;
-    transition-duration: var(--anim-menu-btn-transition-duration, 0.2s);
-  }
-  .anim-menu-btn:active .anim-menu-btn__icon--close {
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9);
-  }
-  .anim-menu-btn__icon--close::before, .anim-menu-btn__icon--close::after {
-    will-change: inherit;
-    transition: inherit;
-  }
-  .anim-menu-btn__icon--close::before {
-    -webkit-transform: translateY(-0.25em) rotate(0);
-            transform: translateY(-0.25em) rotate(0);
-  }
-  .anim-menu-btn__icon--close::after {
-    -webkit-transform: translateY(0.25em) rotate(0);
-            transform: translateY(0.25em) rotate(0);
-  }
-  
-  .anim-menu-btn--state-b .anim-menu-btn__icon--close {
-    background-size: 0% 100%;
-  }
-  .anim-menu-btn--state-b .anim-menu-btn__icon--close::before {
-    -webkit-transform: translateY(0) rotate(45deg);
-            transform: translateY(0) rotate(45deg);
-  }
-  .anim-menu-btn--state-b .anim-menu-btn__icon--close::after {
-    -webkit-transform: translateY(0) rotate(-45deg);
-            transform: translateY(0) rotate(-45deg);
-  }
-  
-  
-  /* utility classes */
-  .ag6-color-contrast-high {
-    --ag6-color-o: 1;
-    color: hsla(var(--ag6-color-contrast-high-hsl), var(--ag6-color-o, 1));
-  }
-
-/* hamburger btn */
-
 /* top part of the page */
 
 
@@ -238,6 +158,7 @@ body {
 .container-buttons {
     display: flex;
     flex-direction: row;
+    height: 100%;
 }
 
 
@@ -388,6 +309,109 @@ body {
     /* display:none; */
     visibility: hidden;
 }
+
+/* top menu */
+
+#menu {
+    z-index: 2;
+    position: relative;
+  }
+  
+  #menu-bar {
+    width: 30px;
+    height: 100%;
+    margin: 3rem -10px 50% 20px;
+    /* margin: 3rem 0 1rem 1rem; */
+    cursor: pointer;
+    z-index: 5;
+    /* position: absolute; */
+    /* top: 50%; */
+  }
+  
+  .bar {
+    height: 5px;
+    width: 100%;
+    background-color: rgb(27, 27, 27);
+    /* background-color: #DC052D; */
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s ease;
+  }
+  
+  #bar1 {
+    transform: translateY(-4px);
+  }
+  
+  #bar3 {
+    transform: translateY(4px);
+  }
+  
+  .nav {
+      height: 5rem;
+      position: absolute;
+      /* left: 4rem; */
+      /* top: 50%; */
+    
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .nav {
+    transition: 0.3s ease;
+    display: none;
+    
+  }
+  
+  .menu-bg, #menu {
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+  
+  .menu-bg {
+    z-index: 1;
+    width: 0;
+    height: 0;
+    margin: 30px 0 20px 20px;
+    background: radial-gradient(circle, #DC052D, #DC052D);
+    border-radius: 50%;
+    transition: 0.3s ease;
+  }
+  
+  .change {
+    display: block;
+  }
+  
+  .change .bar {
+    /* background-color: white; */
+  }
+  
+  .change #bar1 {
+    transform: translateY(4px) rotateZ(-45deg);
+  }
+  
+  .change #bar2 {
+    opacity: 0;
+  }
+  
+  .change #bar3 {
+    transform: translateY(-6px) rotateZ(45deg);
+  }
+  
+  .change-bg {
+    width: 520px;
+    height: 460px;
+    transform: translate(-60%,-30%);
+  }
+
+
+/* end of top menu */
+
+
+
 @media screen and (min-width: 425px) {
     .hidden-for-phones {
         display: none;
@@ -477,7 +501,7 @@ body {
         position: fixed;
         height: 6rem;
         width: 100vw;
-        z-index: 4;
+        z-index: 3;
     }
     .close-top-menu {
         background-image: url(../images/icon-close.svg);
@@ -487,7 +511,7 @@ body {
         background-size: auto auto;
         background-position: center;
         background-repeat: no-repeat;
-        z-index: 65;
+        /* z-index: 10; */
     }
     .right-side-top {
         width: 100%;
@@ -534,11 +558,19 @@ body {
       .container-buttons {
           font-size: .9rem;
         }
+        .nav {
+            top: 50%;
+            left: 2.5rem;
+          }
         
     }
     @media screen and (min-width: 345px) {
         .container-buttons {
             font-size: 1.1rem;
+          }
+          .nav {
+            top: 50%;
+            left: 2.5rem;
           }
           
       }
@@ -547,17 +579,38 @@ body {
             margin-top: -1rem;
             padding-left: 13rem;
         }
+        .nav {
+            top: 50%;
+            left: 2.8rem;
+          }
+        
+        
           
       }
+      @media screen and (max-width: 375px) {
+      #menu-bar {
+            margin: 3rem 0px 50% 15px;
+        }
+    
+    }
     @media screen and (min-width: 375px) {
         .container-buttons {
           font-size: 1.2rem;
         }
+        .nav {
+            top: 50%;
+            left: 3.3rem;
+        }
+        
     }
     @media screen and (min-width: 414px) {
     .container-buttons {
       font-size: 1.3rem;
     }
+    .nav {
+        top: 50%;
+        left: 4rem;
+      }
 }
 
 @media screen and (max-width: 992px) {
@@ -575,3 +628,6 @@ body {
 
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+
+
+

@@ -1,55 +1,3 @@
-// hamburger btn
-if(!Util) function Util () {};
-
-Util.hasClass = function(el, className) {
-  return el.classList.contains(className);
-};
-
-Util.addClass = function(el, className) {
-  var classList = className.split(' ');
-  el.classList.add(classList[0]);
-  if (classList.length > 1) Util.addClass(el, classList.slice(1).join(' '));
-};
-
-Util.removeClass = function(el, className) {
-  var classList = className.split(' ');
-  el.classList.remove(classList[0]);
-  if (classList.length > 1) Util.removeClass(el, classList.slice(1).join(' '));
-};
-
-Util.toggleClass = function(el, className, bool) {
-  if(bool) Util.addClass(el, className);
-  else Util.removeClass(el, className);
-};
-
-// File#: _1_anim-menu-btn
-// Usage: codyhouse.co/license
-(function() {
-	var menuBtns = document.getElementsByClassName('js-anim-menu-btn');
-	if( menuBtns.length > 0 ) {
-		for(var i = 0; i < menuBtns.length; i++) {(function(i){
-			initMenuBtn(menuBtns[i]);
-		})(i);}
-
-		function initMenuBtn(btn) {
-			btn.addEventListener('click', function(event){	
-				event.preventDefault();
-				var status = !Util.hasClass(btn, 'anim-menu-btn--state-b');
-				Util.toggleClass(btn, 'anim-menu-btn--state-b', status);
-				// emit custom event
-				var event = new CustomEvent('anim-menu-btn-clicked', {detail: status});
-				btn.dispatchEvent(event);
-			});
-		};
-	}
-}());
-
-// hamburger btn
-
-
-
-
-
 const prevBtn = document.querySelector(".btn-prev-desktop");
 const nextBtn = document.querySelector(".btn-next-desktop");
 const leftTopCornerBackground = document.querySelector(".left-side-top");
@@ -63,15 +11,18 @@ const closeBtn = document.querySelector('.close-top-menu-btn');
 closeBtn.addEventListener('click', hamburgerMenu)
 
 function hamburgerMenu() {
+  setTimeout(() => {
     document.body.classList.toggle('dim')
     topMenu.classList.toggle('hidden')
+  }, 300);
+    
     console.log('working')
 }
 
 const imgsArr = [
-    ["url(../images/desktop-image-hero-0.jpg)"],
-    ["url(../images/desktop-image-hero-1.jpg)"],
-    ["url(../images/desktop-image-hero-2.jpg)"]
+    ["url(./images/desktop-image-hero-0.jpg)"],
+    ["url(./images/desktop-image-hero-1.jpg)"],
+    ["url(./images/desktop-image-hero-2.jpg)"]
 ]
 // console.log(imgsArr[0].)
 
@@ -95,7 +46,7 @@ function nextTextAndImg() {
     pageHeader.innerHTML = headerArr[counter]
     textAfterHeader.innerHTML = textArr[counter]
     leftTopCornerBackground.style.backgroundImage = imgsArr[counter];
-    console.log(counter)
+    // console.log(leftTopCornerBackground.style.backgroundImage)
     }
     
 function prevTextAndImg() {
@@ -111,3 +62,10 @@ function prevTextAndImg() {
 
 prevBtn.addEventListener('click', prevTextAndImg);
 nextBtn.addEventListener('click', nextTextAndImg);
+
+
+function menuOnClick() {
+  document.getElementById("menu-bar").classList.toggle("change");
+  document.getElementById("nav").classList.toggle("change");
+  document.getElementById("menu-bg").classList.toggle("change-bg");
+}
